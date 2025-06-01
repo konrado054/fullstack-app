@@ -24,6 +24,9 @@ jobs:
           path: ~/.sonar/cache
           key: ${{ runner.os }}-sonar
           restore-keys: ${{ runner.os }}-sonar
+      - name: Run SonarQube analysis
+        working-directory: ./backend
+        run: mvn sonar:sonar
       - name: Cache Maven packages
         uses: actions/cache@v4
         with:
